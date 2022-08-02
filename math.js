@@ -31,6 +31,6 @@ function operate(operator, numA, numB) {
     else if (operator === 'divide') {
         return divide(numA, numB)
     }
-    
+
 }
 
