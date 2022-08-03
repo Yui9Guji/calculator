@@ -34,3 +34,25 @@ function operate(operator, numA, numB) {
 
 }
 
+const buttons = document.querySelectorAll('button')
+const display = document.querySelector('.numbers')
+
+buttons.forEach((button) => {
+
+    button.addEventListener('click', () => {
+
+        const value = button.textContent
+
+        if (value === 'AC') {
+            display.textContent = ''
+        }
+
+        else if (value === 'C') {
+            let displayValue = display.textContent
+            let array = displayValue.split('')
+            array.splice(array.length - 1, 1)
+            display.textContent = array.join('')
+        }
+    })
+
+})
