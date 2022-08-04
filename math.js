@@ -26,10 +26,8 @@ function clear() {
     display.textContent = '0'
 }
 
-
 const digit = ['0','1','2','3','4','5','6','7','8','9', '.']
 const operation = ['%','/','X','-','+']
-const ac = document.querySelector('.ac')
 const buttons = document.querySelector('.buttons')
 
 let numberOne = ''
@@ -41,11 +39,12 @@ const display = document.querySelector('.screen')
 
 buttons.addEventListener('click', (event) => {
     if (!event.target.classList.contains('btn')) return;
-    if (event.target.classList.contains('ac')) clear();
 
     display.textContent = ''
 
     const key = event.target.textContent
+
+    if (key === 'AC') clear()
 
     if (digit.includes(key)) {
 
@@ -66,7 +65,7 @@ buttons.addEventListener('click', (event) => {
     }
 
     if (key === '=') {
-        
+
         switch (factor) {
             case '+':
                 display.textContent = add(+numberOne, +numberTwo)
@@ -92,7 +91,9 @@ buttons.addEventListener('click', (event) => {
                 }
 
                 else {
-                    display.textContent = divide(+numberOne, +numberTwo)
+                    display.textContent =
+                        `${Math.round((divide(+numberOne, +numberTwo) 
+                            * 10)) / 10}`
                     numberOne = display.textContent
                     numberTwo = ''
                     factor = ''
