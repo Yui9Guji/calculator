@@ -60,7 +60,16 @@ body {
     text-align: center;
     line-height: 60px;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 1.5rem;
+    user-select: none;
+}
+
+.btn:hover {
+    filter: brightness(115%);
+}
+
+.btn:active {
+    filter: brightness(90%);
 }
 
 .grey {
