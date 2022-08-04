@@ -68,14 +68,16 @@ buttons.addEventListener('click', (event) => {
 
         switch (factor) {
             case '+':
-                display.textContent = add(+numberOne, +numberTwo)
+                display.textContent = `${Math.round((add(+numberOne, +numberTwo)
+                    * 10)) / 10}`
                 numberOne = display.textContent
                 numberTwo = ''
                 factor = ''
                 break
 
             case '-':
-                display.textContent = subtract(+numberOne, +numberTwo)
+                display.textContent = `${Math.round((subtract(+numberOne, +numberTwo)
+                    * 10)) / 10}`
                 numberOne = display.textContent
                 numberTwo = ''
                 factor = ''
@@ -101,7 +103,8 @@ buttons.addEventListener('click', (event) => {
                 }
 
             case 'X':
-                display.textContent = multiply(+numberOne, +numberTwo)
+                display.textContent = `${Math.round((multiply(+numberOne, +numberTwo)
+                    * 10)) / 10}`
                 numberOne = display.textContent
                 numberTwo = ''
                 factor = ''
