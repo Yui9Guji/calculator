@@ -14,12 +14,15 @@ function divide(varA, varB) {
     return varA / varB
 }
 
+function percent(varA, varB) {
+    return varA % varB
+}
 
 function clear() {
     numberOne = ''
     numberTwo = ''
     factor = ''
-    finish = false
+    // finish = false
     display.textContent = '0'
 }
 
@@ -62,40 +65,58 @@ buttons.addEventListener('click', (event) => {
         display.textContent = key
     }
 
-    if (numberOne !== '' && numberTwo !== '' && factor !== '' && key === '=') {
-
-        if (factor === '+') {
-            display.textContent = add(+numberOne, +numberTwo)
-            numberOne = display.textContent
-            numberTwo = ''
-            factor = ''
-        }
-
-        else if (factor === '-') {
-            display.textContent = subtract(+numberOne, +numberTwo)
-            numberOne = display.textContent
-            numberTwo = ''
-            factor = ''
-        }
-
-        else if (factor === '/') {
-            if (numberTwo === '0') {
-                display.textContent = 'ERROR'
-            }
-
-            else {
-                display.textContent = divide(+numberOne, +numberTwo)
+    if (key === '=') {
+        
+        switch (factor) {
+            case '+':
+                display.textContent = add(+numberOne, +numberTwo)
                 numberOne = display.textContent
                 numberTwo = ''
                 factor = ''
-            }
+                break
+
+            case '-':
+                display.textContent = subtract(+numberOne, +numberTwo)
+                numberOne = display.textContent
+                numberTwo = ''
+                factor = ''
+                break
+
+            case '/':
+                if (numberTwo === '0') {
+                    display.textContent = 'ERROR'
+                    numberOne = ''
+                    numberTwo = ''
+                    factor = ''
+                    break
+                }
+
+                else {
+                    display.textContent = divide(+numberOne, +numberTwo)
+                    numberOne = display.textContent
+                    numberTwo = ''
+                    factor = ''
+                    break
+                }
+
+            case 'X':
+                display.textContent = multiply(+numberOne, +numberTwo)
+                numberOne = display.textContent
+                numberTwo = ''
+                factor = ''
+                break
+
+            case '%':
+                display.textContent = percent(+numberOne, +numberTwo)
+                numberOne = display.textContent
+                numberTwo = ''
+                factor = ''
+                break
+
+            case '+/-':
+
         }
 
-        else if (factor === 'X') {
-            display.textContent = multiply(+numberOne, +numberTwo)
-            numberOne = display.textContent
-            numberTwo = ''
-            factor = ''
-        }
+
     }
 })
