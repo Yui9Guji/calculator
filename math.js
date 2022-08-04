@@ -40,11 +40,11 @@ const display = document.querySelector('.screen')
 buttons.addEventListener('click', (event) => {
     if (!event.target.classList.contains('btn')) return;
 
-    display.textContent = ''
+    display.textContent = '0'
 
     const key = event.target.textContent
 
-    if (key === 'AC') clear()
+    if (key === 'AC') clear();
 
     if (digit.includes(key)) {
 
@@ -113,9 +113,6 @@ buttons.addEventListener('click', (event) => {
                 numberTwo = ''
                 factor = ''
                 break
-
-            case '+/-':
-
         }
 
 
