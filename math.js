@@ -15,7 +15,7 @@ function divide(varA, varB) {
 }
 
 function percent(varA, varB) {
-    return varA % varB
+    return (varA / 100) * varB
 }
 
 function clear() {
